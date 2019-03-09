@@ -1,0 +1,63 @@
+{
+  "Name": "Marauder",
+  "Authors": [
+    "The Faction Team"
+  ],
+  "Guid": "0000-0000-0001-FEED-ACDC",
+  "AgentTypeFormats": [
+    {
+      "Name":"v35-x86-exe",
+      "Description": ".NET 3.5 Executable",
+      "BuildCommand": "bash ./build.sh -f v3.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\"",
+      "BuildLocation": "./bin/Release/Marauder.exe"
+    },
+    {
+      "Name":"v45-x86-exe",
+      "Description": ".NET 4.5 Executable",
+      "BuildCommand": "bash ./build.sh -f v4.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\"",
+      "BuildLocation": "./bin/Release/Marauder.exe"
+    },
+    {
+      "Name":"v35-x86-exe-debug",
+      "Description": ".NET 3.5 Executable with Debug",
+      "BuildCommand": "bash ./build.sh -f v3.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\" -d True",
+      "BuildLocation": "./bin/Debug/Marauder.exe"
+    },
+    {
+      "Name":"v45-x86-exe-debug",
+      "Description": ".NET 4.5 Executable with Debug",
+      "BuildCommand": "bash ./build.sh -f v4.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\" -d True",
+      "BuildLocation": "./bin/Debug/Marauder.exe"
+    }
+  ],
+  "AgentTransportTypes": [
+    {
+      "Name":"DIRECT",
+      "TransportTypeGuid": "0000-0000-0000-0000-0000",
+      "BuildCommand": "bash ./Transports/DIRECT/build.sh -u URL -n KEYNAME -s SECRET",
+      "BuildLocation": "./Transports/DIRECT/DIRECT.dll"
+    }
+  ],
+  "Commands": [
+    {
+			"Name": "tasks",
+			"Description": "List tasks running in Marauder",
+			"Help": "Marauder runs commands within .NET Tasks, this command returns a list of any Tasks being run. You can kill a task using the /kill:<task_name> parameter.",
+			"OpsecSafe": "True",
+			"Parameters": [
+				{
+					"Name": "Kill",
+					"Required": "False",
+					"Help": "Stop the specified Task name. Example: tasks /Kill:abc1"
+				}
+			]
+    },
+    {			
+      "Name": "exit",
+			"Description": "Kills the Marauder agent",
+			"Help": "Tasks Marauder to exit.",
+			"OpsecSafe": "True",
+			"Parameters": []
+    }
+  ]
+}

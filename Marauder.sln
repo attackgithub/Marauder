@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{79955436-92C6-438C-9A08-CE228C2E991D}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marauder", "Marauder.csproj", "{5C4B327D-62B6-4616-BA84-39577FFCC73C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C4B327D-62B6-4616-BA84-39577FFCC73C}.Debug|x86.ActiveCfg = Debug|x86
+		{5C4B327D-62B6-4616-BA84-39577FFCC73C}.Debug|x86.Build.0 = Debug|x86
+		{5C4B327D-62B6-4616-BA84-39577FFCC73C}.Release|x86.ActiveCfg = Release|x86
+		{5C4B327D-62B6-4616-BA84-39577FFCC73C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12D86060-A281-4E53-A25B-67925AB234C2}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.StandardHeader = $1
+	EndGlobalSection
+EndGlobal
