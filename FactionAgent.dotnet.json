@@ -36,6 +36,12 @@
       "TransportTypeGuid": "0000-0000-0000-0000-0000",
       "BuildCommand": "bash ./Transports/DIRECT/build.sh -u URL -n KEYNAME -s SECRET",
       "BuildLocation": "./Transports/DIRECT/DIRECT.dll"
+    },
+    {
+      "Name":"HttpTransport",
+      "TransportTypeGuid": "2daece20-0d27-4068-b265-ceff27d3f3b2",
+      "BuildCommand": "bash ./Transports/HttpTransport/build.sh -c CONFIG",
+      "BuildLocation": "./Transports/HttpTransport/HttpTransport.dll"
     }
   ],
   "Commands": [
