@@ -58,7 +58,7 @@
       <HintPath>packages/Newtonsoft.Json.12.0.1/lib/net35/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Faction.Modules.Dotnet.Common">
-      <HintPath>Libraries\Debug\Faction.Modules.Dotnet.Common.dll</HintPath>
+      <HintPath>packages\Faction.Modules.Dotnet.Common.20190309.0.0\lib\net35\Faction.Modules.Dotnet.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
