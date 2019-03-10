@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.8.14" />
+    <PackageReference Include="newtonsoft.json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Faction.Modules.Dotnet.Common">
+      <HintPath Condition="Exists('ref\Faction.Modules.Dotnet.Common.dll')">ref\Faction.Modules.Dotnet.Common.dll</HintPath>
+      <HintPath Condition="Exists('/opt/faction/modules/dotnet/dotnet-modules/Libraries/Faction.Modules.Dotnet.Common.dll')">/opt/faction/modules/dotnet/dotnet-modules/Libraries/Faction.Modules.Dotnet.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
