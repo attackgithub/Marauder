@@ -8,25 +8,13 @@
     {
       "Name":"v35-x86-exe",
       "Description": ".NET 3.5 Executable",
-      "BuildCommand": "bash ./build.sh -f v3.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\"",
-      "BuildLocation": "./bin/Release/Marauder.exe"
-    },
-    {
-      "Name":"v45-x86-exe",
-      "Description": ".NET 4.5 Executable",
-      "BuildCommand": "bash ./build.sh -f v4.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\"",
+      "BuildCommand": "bash ./build.sh -f v3.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -i BEACONINTERVAL -j JITTER -e \"EXPIRATION\"",
       "BuildLocation": "./bin/Release/Marauder.exe"
     },
     {
       "Name":"v35-x86-exe-debug",
       "Description": ".NET 3.5 Executable with Debug",
-      "BuildCommand": "bash ./build.sh -f v3.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\" -d True",
-      "BuildLocation": "./bin/Debug/Marauder.exe"
-    },
-    {
-      "Name":"v45-x86-exe-debug",
-      "Description": ".NET 4.5 Executable with Debug",
-      "BuildCommand": "bash ./build.sh -f v4.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -e \"EXPIRATION\" -d True",
+      "BuildCommand": "bash ./build.sh -f v3.5 -n PAYLOADNAME -p PAYLOADKEY -t TRANSPORT -i BEACONINTERVAL -j JITTER  -e \"EXPIRATION\" -d True",
       "BuildLocation": "./bin/Debug/Marauder.exe"
     }
   ],

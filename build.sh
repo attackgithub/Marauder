@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts ":n:p:t:e:f:d:" opt
+while getopts ":n:p:t:i:j:e:f:d:" opt
  do
   case $opt in
     n ) 
@@ -14,6 +14,14 @@ while getopts ":n:p:t:e:f:d:" opt
     t )
       echo "got t:"$OPTARG
       transport=$OPTARG
+      ;;
+    i )
+      echo "got i:"$OPTARG
+      interval=$OPTARG
+      ;;
+    j )
+      echo "got j:"$OPTARG
+      jitter=$OPTARG
       ;;
     e )
       echo "got d:"$OPTARG
@@ -31,7 +39,7 @@ while getopts ":n:p:t:e:f:d:" opt
       ;;
   esac
 done
-echo -e "{\"PayloadName\":\""$payload_name"\", \"Password\":\""$password"\", \"Transport\":\""$transport"\", \"ExpirationDate\":\""$expiration_date\"", \"Debug\":\""$debug\""}" > ./settings.json
+echo -e "{\"PayloadName\":\""$payload_name"\", \"Password\":\""$password"\", \"Transport\":\""$transport"\", \"BeaconInterval\":\""$interval"\", \"Jitter\":\""$jitter"\", \"ExpirationDate\":\""$expiration_date\"", \"Debug\":\""$debug\""}" > ./settings.json
 
 if [ "$debug" = "True" ]; then
   configuration=Debug
