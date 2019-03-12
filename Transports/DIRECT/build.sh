@@ -3,6 +3,7 @@
 nuget restore ./Transports/DIRECT/packages.config -PackagesDirectory ./Transports/DIRECT/packages
 
 rm ./Transports/DIRECT/DIRECT-build.cs
+rm ./Transports/DIRECT.dll
 cp ./Transports/DIRECT/DIRECT.cs ./Transports/DIRECT/DIRECT-build.cs
 
 while getopts ":u:n:s:" opt
