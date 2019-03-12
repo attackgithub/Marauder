@@ -34,3 +34,4 @@ sed -i "s/KEYNAME/$key_name/g" ./Transports/DIRECT/DIRECT-build.cs
 sed -i "s/SECRET/$secret/g" ./Transports/DIRECT/DIRECT-build.cs
 
 mcs -pkg:dotnet -t:library -r:./Transports/DIRECT/packages/Newtonsoft.Json.12.0.1/lib/net35/Newtonsoft.Json.dll -r:./Transports/DIRECT/packages/Faction.Modules.Dotnet.Common.20190309.0.0/lib/net35/Faction.Modules.Dotnet.Common.dll -out:./Transports/DIRECT/DIRECT.dll ./Transports/DIRECT/DIRECT-build.cs
+sleep 3
