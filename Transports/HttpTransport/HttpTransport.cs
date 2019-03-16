@@ -8,7 +8,7 @@ using Faction.Modules.Dotnet.Common;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 
-namespace Marauder.Common
+namespace Faction.Modules.Dotnet.Common
 {
     public class Transport  : AgentTransport
     {
