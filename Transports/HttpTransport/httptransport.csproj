@@ -10,10 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Faction.Modules.Dotnet.Common">
-      <HintPath Condition="Exists('ref\Faction.Modules.Dotnet.Common.dll')">ref\Faction.Modules.Dotnet.Common.dll</HintPath>
-      <HintPath Condition="Exists('/opt/faction/modules/dotnet/dotnet-modules/Libraries/Faction.Modules.Dotnet.Common.dll')">/opt/faction/modules/dotnet/dotnet-modules/Libraries/Faction.Modules.Dotnet.Common.dll</HintPath>
-    </Reference>
+  <!-- build.sh will make a copy of HttpTransport with injected parameters, msbuild needs to ignore the original HttpTransport.cs -->
+    <Compile Remove="./HttpTransport.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Faction.Modules.Dotnet.Common">
+      <HintPath Condition="Exists('ref\Faction.Modules.Dotnet.Common.dll')">ref\Faction.Modules.Dotnet.Common.dll</HintPath>
+      <HintPath Condition="Exists('/opt/faction/modules/dotnet/Libraries/Faction.Modules.Dotnet.Common.dll')">/opt/faction/modules/dotnet/Libraries/Faction.Modules.Dotnet.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
